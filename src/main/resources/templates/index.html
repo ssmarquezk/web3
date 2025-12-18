@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Inicio</title>
+</head>
+<body>
+    <h1>Inicio</h1>
+    
+    <h2>Usuarios</h2>
+    <a href="/usuarios">Ver Usuarios</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+        </tr>
+        <tr th:each="usuario : ${usuarios}">
+            <td th:text="${usuario.id}"></td>
+            <td th:text="${usuario.nombre}"></td>
+            <td th:text="${usuario.apellido}"></td>
+            <td th:text="${usuario.email}"></td>
+        </tr>
+    </table>
+    
+    <h2>Tutoriales</h2>
+    <a href="/tutoriales">Ver Tutoriales</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Usuario</th>
+        </tr>
+        <tr th:each="tutorial : ${tutoriales}">
+            <td th:text="${tutorial.id}"></td>
+            <td th:text="${tutorial.titulo}"></td>
+            <td th:text="${tutorial.descripcion}"></td>
+            <td th:text="${tutorial.nombreUsuario}"></td>
+        </tr>
+    </table>
+</body>
+</html>

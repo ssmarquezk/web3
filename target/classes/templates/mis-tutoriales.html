@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Tutoriales</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">Web3 Mis Tutoriales</a>
+            <div class="navbar-nav ms-auto">
+                <a href="/tutoriales" class="nav-link me-3" sec:authorize="isAuthenticated()">Ver Tutoriales</a>
+                <span class="navbar-text me-3" sec:authorize="isAuthenticated()">
+                    Bienvenido, <span sec:authentication="name"></span>
+                </span>
+                <form th:action="@{/logout}" method="post" class="d-inline" sec:authorize="isAuthenticated()">
+                    <button type="submit" class="btn btn-outline-light">Cerrar Sesión</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Mis Tutoriales</h1>
+            <a href="/crear-tutorial" class="btn btn-success">Crear Nuevo Tutorial</a>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" th:if="${#lists.size(tutoriales) > 0}">
+            <div class="col" th:each="tutorial : ${tutoriales}">
+                <div class="card h-100">
+                    <img th:src="${tutorial.urlImagen}" class="card-img-top" alt="Imagen del tutorial" style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title" th:text="${tutorial.titulo}"></h5>
+                        <p class="card-text" th:text="${tutorial.descripcion}"></p>
+                        <div class="mt-auto">
+                            <a th:href="@{/tutorial-detalle/{id}(id=${tutorial.id})}" class="btn btn-primary">Ver Detalles</a>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between">
+                            <a th:href="@{/editar-tutorial/{id}(id=${tutorial.id})}" class="btn btn-warning btn-sm">Editar</a>
+                            <form th:action="@{/eliminar-tutorial/{id}(id=${tutorial.id})}" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este tutorial?')">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info" th:if="${#lists.size(tutoriales) == 0}">
+            <h4>No tienes tutoriales aún</h4>
+            <p>Aún no has creado ningún tutorial. ¡Comienza creando tu primer tutorial!</p>
+            <a href="/crear-tutorial" class="btn btn-success">Crear tu primer tutorial</a>
+        </div>
+
+        <div class="mt-4">
+            <a href="/" class="btn btn-secondary">Volver al Inicio</a>
+            <a href="/tutoriales" class="btn btn-info">Ver Todos los Tutoriales</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

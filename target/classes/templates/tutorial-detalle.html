@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${tutorial.titulo}">Detalles del Tutorial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">Web3 Tutoriales</a>
+            <div class="navbar-nav ms-auto">
+                <a href="/mis-tutoriales" class="nav-link me-3" sec:authorize="isAuthenticated()">Mis Tutoriales</a>
+                <span class="navbar-text me-3" sec:authorize="isAuthenticated()">
+                    Bienvenido, <span sec:authentication="name"></span>
+                </span>
+                <form th:action="@{/logout}" method="post" class="d-inline" sec:authorize="isAuthenticated()">
+                    <button type="submit" class="btn btn-outline-light">Cerrar Sesión</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <a href="/tutoriales" class="btn btn-secondary mb-3">Volver a Tutoriales</a>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8">
+                <article>
+                    <img th:src="${tutorial.urlImagen}" class="img-fluid rounded mb-4" th:alt="${tutorial.titulo}">
+                    
+                    <h1 class="mb-3" th:text="${tutorial.titulo}"></h1>
+                    
+                    <p class="lead" th:text="${tutorial.descripcion}"></p>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Acerca del Tutorial</h5>
+                            <p class="card-text">
+                                <strong>Autor:</strong> <span th:text="${tutorial.nombreUsuario}"></span><br>
+                                <strong>ID:</strong> <span th:text="${tutorial.id}"></span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-body" th:utext="${tutorial.cuerpo}">
+                        <!-- Contenido del tutorial -->
+                    </div>
+                </article>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Información</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Autor:</strong> <span th:text="${tutorial.nombreUsuario}"></span></p>
+                        <p><strong>Publicado:</strong> <span th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy')}"></span></p>
+                        <a href="/tutoriales" class="btn btn-primary">Ver más tutoriales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

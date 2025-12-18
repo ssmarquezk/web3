@@ -1,0 +1,16 @@
+web3/web3/security/CustomUserDetailsService.class
+web3/web3/service/UsuariosService.class
+web3/web3/dto/TutorialesDTO.class
+web3/web3/controller/UsuariosRestController.class
+web3/web3/Web3Application.class
+web3/web3/controller/VistasController.class
+web3/web3/controller/TutorialesRestController.class
+web3/web3/dto/UsuariosDTO.class
+web3/web3/repository/UsuariosRepository.class
+web3/web3/initializer/TutorialesInitializer.class
+web3/web3/service/TutorialesService.class
+web3/web3/repository/TutorialesRepository.class
+web3/web3/model/TutorialesModel.class
+web3/web3/security/SecurityConfig.class
+web3/web3/initializer/UsuariosInitializer.class
+web3/web3/model/UsuariosModel.class

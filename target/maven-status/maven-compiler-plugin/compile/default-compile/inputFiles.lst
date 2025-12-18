@@ -1,0 +1,16 @@
+/home/sebastian/vscode/web3/src/main/java/web3/web3/Web3Application.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/controller/TutorialesRestController.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/controller/UsuariosRestController.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/controller/VistasController.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/dto/TutorialesDTO.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/dto/UsuariosDTO.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/initializer/TutorialesInitializer.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/initializer/UsuariosInitializer.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/model/TutorialesModel.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/model/UsuariosModel.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/repository/TutorialesRepository.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/repository/UsuariosRepository.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/security/CustomUserDetailsService.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/security/SecurityConfig.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/service/TutorialesService.java
+/home/sebastian/vscode/web3/src/main/java/web3/web3/service/UsuariosService.java
