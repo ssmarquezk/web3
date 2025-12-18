@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Web3Application<web3>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "web3.web3.Web3Application",
+            "projectName": "web3",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
